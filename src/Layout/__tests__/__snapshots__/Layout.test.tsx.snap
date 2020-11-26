@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layout should render successfully 1`] = `
+@media (min-width:425px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+<div>
+  Test 1
+</div>
+`;
