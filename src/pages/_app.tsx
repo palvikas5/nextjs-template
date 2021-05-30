@@ -1,27 +1,24 @@
 import React from 'react';
 import Head from 'next/head';
-import { Layout } from '../Layout/Layout';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { theme } from '../theme';
 
 interface AppProps {
   Component: React.ComponentType;
   pageProps: any;
 }
 
-const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <>
-      <Head>
-        <link
-          key='fonts'
-          href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap'
-        />
-        <title key='title'>Next.js Template</title>
-      </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
-  );
-};
+const App = ({ Component, pageProps }: AppProps) => (
+  <>
+    <Head>
+      <title key='title'>Next.js Template</title>
+    </Head>
+
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  </>
+);
 
 export default App;

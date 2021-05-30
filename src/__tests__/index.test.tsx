@@ -17,7 +17,7 @@ const setup = async () => {
 
 describe('homePage', () => {
   describe('getServerSideProps', () => {
-    it('should return props from a valid rawToken', async () => {
+    it('should return props', async () => {
       expect.assertions(1);
 
       const props = await setupProps();
@@ -26,30 +26,11 @@ describe('homePage', () => {
   });
 
   describe('<HomePage />', () => {
-    it('should render with a correct rawToken', async () => {
+    it('should render', async () => {
       expect.assertions(1);
 
-      const { container } = await setup();
-      expect(container).toMatchInlineSnapshot(`
-        .c0 {
-          color: hotpink;
-          font-size: 3rem;
-        }
-
-        <div>
-          <div>
-            <h1
-              class="c0"
-            >
-              Next.js Template
-            </h1>
-            <div>
-              Hello
-              world
-            </div>
-          </div>
-        </div>
-      `);
+      const { getByText } = await setup();
+      expect(getByText('Hello world')).toBeInTheDocument();
     });
   });
 });
